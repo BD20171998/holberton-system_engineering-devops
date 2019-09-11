@@ -1,0 +1,1 @@
+This is a collection of shell scripts for 0x00 Shell, basics
