@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -a -F --format=commas --group-directories-first
