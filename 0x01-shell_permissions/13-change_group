@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo chown holberton hello
+su chown holberton hello
