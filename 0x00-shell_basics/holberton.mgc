@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -i "holberton" .
+find . -iname "*holberton*"
