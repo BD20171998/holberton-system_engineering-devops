@@ -1,2 +1,2 @@
 #!/bin/bash
-file . -type d | wc -l
+file . -type d -mindepth 1 -maxdepth 1 | wc -l
