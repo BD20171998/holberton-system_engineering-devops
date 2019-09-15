@@ -1,2 +1,2 @@
 #!/bin/bash
-file . -type d -mindepth 1 -maxdepth 1 | wc -l
+ls -lR | grep "^d" | wc -l
