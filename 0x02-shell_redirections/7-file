@@ -1,2 +1,2 @@
 #!/bin/bash
-mkdir \\\*\\\\\'\"Holberton" "School\"\\\'\\\\\*\$\\\?\\\*\\\*\\\*\\\*\\\*\:\)$'\n'"Holberton School"
+mkdir \\\*\\\\\'\"Holberton\ School\"\\\'\\\\\*\$\\\?\\\*\\\*\\\*\\\*\\\*\:\)$'\n'Holberton\ School
