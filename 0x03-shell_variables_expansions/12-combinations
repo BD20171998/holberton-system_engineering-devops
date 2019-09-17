@@ -1,2 +1,2 @@
 #!/bin/bash
-echo {a..z}{a..z}$'\n' | sort -d | grep "oo" -v
+echo $'\n'{a..z}{a..z} | sort -d | grep "oo" -v
