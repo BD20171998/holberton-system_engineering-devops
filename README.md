@@ -15,4 +15,4 @@ This repository contains programs written in Bash for the System Engineering and
 
 ## Author
 
-- **Bob Deprizio** - [BD20171998] (https:///github.com/BD20171998)
+- **Bob Deprizio** - [BD20171998](https:///github.com/BD20171998)
