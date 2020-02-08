@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# This script displays the visitor IP along with the HTTP status code from
+# an Apache log file ordered from the greatest to the lowest number of
+# occurrences
+
+awk '{ print $1, $9 }' apache-access.log | sort | uniq -c | sort -k1,1 -n -r
