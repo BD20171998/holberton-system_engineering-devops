@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# This script displays "Holberton School" 10 times using a while loop
+# but for the 9th iteration, displays "Holberton School" and then "Hi"
+# on a new line
+
+name='Holberton School'
+counter="0"
+
+while [ $counter -lt 10 ]
+do
+	echo "$name"
+
+	if [ $counter -eq 8 ]
+	then
+		echo "Hi"
+	fi
+	counter=$((counter+1))
+done
