@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This script displays "Holberton School" 10 times using a while loop
+
+name='Holberton School'
+counter="0"
+
+while [ $counter -lt 10 ]
+do
+	echo "$name"
+	counter=$((counter+1))
+done
