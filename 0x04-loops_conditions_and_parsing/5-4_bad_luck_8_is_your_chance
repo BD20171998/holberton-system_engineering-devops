@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# This script displays "Holberton School" 10 times using a while loop
+# and displays bad luck for the 4th loop iteration and displays good luck for
+# the 8th loop iteration
+
+name='Holberton School'
+counter="0"
+
+while [ $counter -lt 10 ]
+do
+
+	if [ $counter -eq 3 ]
+	then
+	   echo "bad luck"
+
+	elif [ $counter -eq 7 ]
+	then
+	   echo "good luck"
+
+	else
+	   echo "$name"
+	fi
+
+	counter=$((counter+1))
+done
