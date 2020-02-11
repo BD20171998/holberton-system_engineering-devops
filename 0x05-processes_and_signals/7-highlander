@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This script displays "To infinity and beyond indefinitely"
+# and displays "I am invincible!!!" when receiving a SIGTERM signal from
+# the 67-kill_me_now_made_easy file
+
+count=1
+
+#trap  "echo I am invincible!!!" SIGTERM
+
+while [ $count ]
+do
+    trap  "echo I am invincible!!!" SIGTERM
+    echo "To infinity and beyond"
+    sleep 2
+done
