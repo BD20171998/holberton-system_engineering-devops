@@ -1,0 +1,3 @@
+#!/bin/bash
+cut -f1 |sort |uniq -c | sort -k1,1 -nr |head -11|cut -d " " -f5-|cut -d " " -f2
+# | head --lines=11 | cut -f2-
