@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+ifconfig | grep "inet addr:" | cut -d ":" -f2 | cut -d " " -f1
