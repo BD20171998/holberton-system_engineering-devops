@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#script that pings an IP address passed as an argument
+
 IP_ADDRESS=$1
 if [ "$#" -eq 0 ];
 then
