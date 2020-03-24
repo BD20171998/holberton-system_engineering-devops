@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Bash script that uses ssh to connect to a server using a private key
+chmod 600 ~/.ssh/holberton
+ssh -i ~/.ssh/holberton ubuntu@104.196.182.248
