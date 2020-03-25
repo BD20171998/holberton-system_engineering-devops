@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 #Bash script that transfers a file from a client to a server
 
-if [ "$#" -lt 4 ];
+if [ "$#" -lt 3 ];
 then
     echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
-else
-    ssh -i ~/"$4"
-    scp -o StrictHostKeyChecking=no "$3@$2" "$1" "$3@$2" "$3@$2":~/
+elif [ "$#" -eq 3 ]
+then
+    scp -o StrictHostKeyChecking=no "$1" "$3@$2":~/
+elif [ "$#" -eq 4 ]
+then
+    scp -o StrictHostKeyChecking=no -i "$4" "$1" "$3@$2":~/
 fi
