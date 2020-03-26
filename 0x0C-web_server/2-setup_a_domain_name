@@ -1,1 +1,22 @@
 bobd.tech
+{
+   "domainName": "bobd.tech",
+   "parseCode": 0,
+   "audit": {
+      "createdDate": "2020-03-26 05:38:03.898 UTC",
+      "updatedDate": "2020-03-26 05:38:03.898 UTC"
+   },
+   "dataError": "INCOMPLETE_DATA",
+   "registryData": {
+      "domainName": "bobd.tech",
+      "parseCode": 64,
+      "audit": {
+         "createdDate": "2020-03-26 05:38:03.898 UTC",
+         "updatedDate": "2020-03-26 05:38:03.898 UTC"
+      },
+      "dataError": "INCOMPLETE_DATA",
+      "whoisServer": "whois.nic.tech"
+   },
+   "domainAvailability": "UNAVAILABLE",
+   "domainNameExt": ".tech"
+}
