@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Bash script containing commands to automatically configure a Ubuntu machine to
+# configure a Nginx server so that /redirect_me is redirecting to another page
+# Also adds custom 404 page
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
+sudo sed -i "/listen \[\:\:\]\:80 default_server;/a rewrite ^/redirect_me https://www.youtube.com permanent;" /etc/nginx/sites-available/default
+sudo service nginx start
