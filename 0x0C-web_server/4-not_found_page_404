@@ -7,5 +7,5 @@ sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html
 echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
-sudo sed -i "/listen \[\:\:\]\:80 default_server;/a rewrite ^/redirect_me https://www.youtube.com permanent;" /etc/nginx/sites-available/default
+sudo sed -i "/listen \[\:\:\]\:80 default_server;/a rewrite ^/redirect_me https://www.youtube.com permanent;\n\n error_page 404 /custom_404.html;\nlocation = /custom_404.html { root /usr/share/nginx/html; internal; }\n\n" /etc/nginx/sites-available/default
 sudo service nginx start
