@@ -5,5 +5,5 @@
 # issue. Then, write a Bash script with the minimum number of commands to
 # automate your fix.
 
-sudo sed -i "s/listen 8080 default_server;/listen 80 default_server;/" /etc/nginx/sites-enabled/default
+sudo sed -i "s/listen 8080 default_server;/listen 80 default_server;/g" /etc/nginx/sites-enabled/default
 sudo service nginx restart
