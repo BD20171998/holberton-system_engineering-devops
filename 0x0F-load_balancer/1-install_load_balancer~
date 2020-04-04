@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+sudo apt-get install -y software-properties-common
+sudo add-apt-repository ppa:vbernat/haproxy-1.8
+sudo apt-get update
+sudo apt-get install -y haproxy=1.8.\*
+echo "
+frontend http_front
+   bind *:80
+   stats uri /haproxy?stats
+   default_backend http_back
+backend http_back
+   balance roundrobin
+   mode http
+   server 1086-web-01 104.196.182.248:80 check
+   server 1086-web-02 3.95.214.115:80 check" >> /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
