@@ -10,13 +10,13 @@ my_digger ()
 {
     if [ ! -z "$1" ] && [ -z "$2" ]; then
         myvar_a1="The subdomain $SUB1 is a "
-        myvar_a2=$(dig "$SUB1"."$1" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record and points to " $5}')
+        myvar_a2=$(dig $SUB1.$1 | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record and points to " $5}')
         myvar_b1="The subdomain $SUB2 is a "
-        myvar_b2=$(dig "$SUB2"."$1" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record and points to " $5}')
+        myvar_b2=$(dig $SUB2.$1 | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record and points to " $5}')
         myvar_c1="The subdomain $SUB3 is a "
-        myvar_c2=$(dig "$SUB3"."$1" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record and points to " $5}')
+        myvar_c2=$(dig $SUB3.$1 | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record and points to " $5}')
         myvar_d1="The subdomain $SUB4 is a "
-        myvar_d2=$(dig "$SUB4"."$1" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record and points to " $5}')
+        myvar_d2=$(dig $SUB4.$1 | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record and points to " $5}')
 
         echo "$myvar_a1$myvar_a2"
         echo "$myvar_b1$myvar_b2"
@@ -25,8 +25,9 @@ my_digger ()
 
     elif [ ! -z "$1" ] && [ ! -z "$2" ]; then
         myvar1="The subdomain $2 is a "
-        myvar2=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record and points to " $5}')
+        myvar2=$(dig $2.$1 | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $4 " record and points to " $5}')
         echo "$myvar1$myvar2"
     fi
+}
 
 my_digger "$1" "$2"
