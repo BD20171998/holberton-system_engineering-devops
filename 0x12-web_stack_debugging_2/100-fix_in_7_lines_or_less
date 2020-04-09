@@ -1,6 +1,5 @@
-#!/bin/bash
+#!/bin/bash env
 # Fix this container so that Nginx is running as user nginx
-
 pkill apache2
 chown -R nginx /etc/nginx
 chmod 770 /etc/nginx/nginx.conf
