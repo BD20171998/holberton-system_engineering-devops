@@ -1,4 +1,3 @@
-#https://gist.github.com/thisismitch/7c91e9b2b63f837a0c4b
 global
 	log /dev/log	local0
 	log /dev/log	local1 notice
