@@ -45,7 +45,7 @@ frontend http_front
    	 default_backend http_back
 
 frontend https_front
-	 bind www.bobd.tech:443 ssl crt /etc/haproxy/certs/www.bobd.tech.pem
+	 bind *:443 ssl crt /etc/haproxy/certs/www.bobd.tech.pem
 	 reqadd X-Forwarded-Proto:\ https
 	 acl letsencrypt-acl path_beg /.well-known/acme-challenge/
 	 use_backend letsencrypt-backend if letsencrypt-acl
@@ -54,5 +54,9 @@ frontend https_front
 backend http_back
    	balance roundrobin
    	mode http
+	redirect scheme https if !{ ssl_fc }
    	server 1086-web-01 104.196.182.248:80 check
    	server 1086-web-02 3.95.214.115:80 check
+
+backend letsencrypt-backend
+	server letsencrypt 127.0.0.1:54321
