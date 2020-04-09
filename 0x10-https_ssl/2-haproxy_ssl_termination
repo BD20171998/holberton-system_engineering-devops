@@ -1,0 +1,61 @@
+#https://gist.github.com/thisismitch/7c91e9b2b63f837a0c4b
+global
+	log /dev/log	local0
+	log /dev/log	local1 notice
+	chroot /var/lib/haproxy
+	stats socket /run/haproxy/admin.sock mode 660 level admin
+	stats timeout 30s
+	user haproxy
+	group haproxy
+	daemon
+	maxconn 2048
+	tune.ssl.default-dh-param 2048
+
+	# Default SSL material locations# Default SSL material locations
+	ca-base /etc/ssl/certs
+	crt-base /etc/ssl/private
+
+	# Default ciphers to use on SSL-enabled listening sockets.
+	# For more information, see ciphers(1SSL). This list is from:
+	#  https://hynek.me/articles/hardening-your-web-servers-ssl-ciphers/
+	ssl-default-bind-ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS
+	ssl-default-bind-options no-sslv3
+
+defaults
+	log	global
+	mode	http
+	option	httplog
+	option	dontlognull
+        timeout connect 5000
+        timeout client  50000
+        timeout server  50000
+	errorfile 400 /etc/haproxy/errors/400.http
+	errorfile 403 /etc/haproxy/errors/403.http
+	errorfile 408 /etc/haproxy/errors/408.http
+	errorfile 500 /etc/haproxy/errors/500.http
+	errorfile 502 /etc/haproxy/errors/502.http
+	errorfile 503 /etc/haproxy/errors/503.http
+	errorfile 504 /etc/haproxy/errors/504.http
+	option forwardfor
+	option http-server-close
+
+frontend http_front
+   	 bind *:80
+   	 stats uri /haproxy?stats
+   	 default_backend http_back
+
+frontend https_front
+	 bind www.bobd.tech:443 ssl crt /etc/haproxy/certs/www.bobd.tech.pem
+	 reqadd X-Forwarded-Proto:\ https
+	 acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+	 use_backend letsencrypt-backend if letsencrypt-acl
+	 default_backend www-backend
+
+backend http_back
+   	balance roundrobin
+   	mode http
+   	server 1086-web-01 104.196.182.248:80 check
+   	server 1086-web-02 3.95.214.115:80 check
+
+backend letsencrypt-backend
+	server letsencrypt 127.0.0.1:54321
