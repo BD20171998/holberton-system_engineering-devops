@@ -21,6 +21,10 @@ Let’s also add other subdomains to make our life easier, and write a Bash scri
 ### [2. HAproxy SSL termination](./2-haproxy_ssl_termination)
 * “Terminating SSL on HAproxy” means that HAproxy is configured to handle encrypted traffic, unencrypt it and pass it on to its destination.
 
+
+### [3. No loophole in your website traffic](./100-redirect_http_to_https)
+* A good habit is to enforce HTTPS traffic so that no unencrypted traffic is possible. Configure HAproxy to automatically redirect HTTP traffic to HTTPS.
+
 ---
 
 ## Author
