@@ -18,7 +18,7 @@ if __name__ == "__main__":
 
     for i in data2:
         if i['id'] == int(argv[1]):
-            employee = i['name']
+            employee = i['username']
 
     with open('USER_ID.csv', 'w', newline='') as file:
         writ = csv.writer(file, quoting=csv.QUOTE_ALL)
