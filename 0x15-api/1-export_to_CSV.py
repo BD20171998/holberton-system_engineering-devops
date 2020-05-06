@@ -20,7 +20,7 @@ if __name__ == "__main__":
         if i['id'] == int(argv[1]):
             employee = i['username']
 
-    with open('USER_ID.csv', 'w', newline='') as file:
+    with open(argv[1] + '.csv', 'w', newline='') as file:
         writ = csv.writer(file, quoting=csv.QUOTE_ALL)
 
         for i in data:
