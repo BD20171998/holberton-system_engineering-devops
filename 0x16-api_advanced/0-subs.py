@@ -9,17 +9,19 @@ def number_of_subscribers(subreddit):
     (not active users, total subscribers) for a given subreddit.
     """
 
+    if subreddit is None or not isinstance(subreddit, str):
+        return 0
+
     user_agent = {'User-agent': 'Google Chrome Version 81.0.4044.129 '}
-    url = 'https://www.reddit.com/r/' + subreddit + '.json'
+    url = 'https://www.reddit.com/r/{}.json'.format(subreddit)
+    response = get(url, headers=user_agent)
+    all_data = response.json()
 
     try:
-        response = get(url, headers=user_agent)
-        all_data = response.json()
+        raw_data = all_data.get('data')
+        raw_data2 = raw_data.get('children')
 
-        raw_data = all_data['data']
-        raw_data2 = raw_data['children']
-
-        total = raw_data2[0]['data']['subreddit_subscribers']
+        total = raw_data2[0].get('data').get('subreddit_subscribers')
 
         return total
 
