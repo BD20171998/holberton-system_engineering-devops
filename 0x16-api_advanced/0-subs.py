@@ -13,17 +13,13 @@ def number_of_subscribers(subreddit):
         return 0
 
     user_agent = {'User-agent': 'Google Chrome Version 81.0.4044.129 '}
-    url = 'https://www.reddit.com/r/{}.json'.format(subreddit)
+    url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
     response = get(url, headers=user_agent)
     all_data = response.json()
 
     try:
         raw_data = all_data.get('data')
-        raw_data2 = raw_data.get('children')
-
-        total = raw_data2[0].get('data').get('subreddit_subscribers')
-
-        return total
+        return (raw_data.get('subscribers'))
 
     except:
         return 0
