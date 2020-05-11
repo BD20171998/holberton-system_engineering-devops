@@ -16,7 +16,7 @@ def recurse(subreddit, hot_list=[], after=None):
     params = {'show': 'all'}
 
     if subreddit is None or not isinstance(subreddit, str):
-        print("None")
+        return None
 
     user_agent = {'User-agent': 'Google Chrome Version 81.0.4044.129'}
 
