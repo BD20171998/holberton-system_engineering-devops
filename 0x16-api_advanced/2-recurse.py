@@ -24,6 +24,10 @@ def recurse(subreddit, hot_list=[], after=None):
                                                                   after)
 
     response = get(url, headers=user_agent, params=params)
+
+    if (response.status_code != 200):
+        return None
+
     all_data = response.json()
 
     try:
