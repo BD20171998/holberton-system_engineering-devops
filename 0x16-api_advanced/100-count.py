@@ -4,6 +4,7 @@
 importing requests module
 """
 
+import re
 from requests import get
 
 
@@ -54,15 +55,16 @@ def count_words(subreddit, word_list=[], after=None, cleaned_dict=None):
     for i in raw1:
         title = i.get('data').get('title')
 
-        split_title = title.split()
+        for j in cleaned_word_list:
 
-        split_title2 = [i.casefold() for i in split_title]
+            regex = r"(?i)(?<!\S){}(?!\S)".format(j)
 
-        for j in split_title2:
-            if j in cleaned_dict and cleaned_dict[j] is None:
-                cleaned_dict[j] = 1
+            matches = re.findall(regex, title, re.MULTILINE)
+
+            if len(matches) > 0 and cleaned_dict[j] is None:
+                cleaned_dict[j] = len(matches)
 
             elif j in cleaned_dict and cleaned_dict[j] is not None:
-                cleaned_dict[j] += 1
+                cleaned_dict[j] += len(matches)
 
     count_words(subreddit, word_list, after, cleaned_dict)
