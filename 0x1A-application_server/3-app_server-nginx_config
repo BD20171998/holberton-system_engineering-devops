@@ -16,8 +16,8 @@
 server {
        listen 80 default_server;
 
-location /airbnb-dynamic/number_odd_or_even/$arg{ proxy_pass http://0.0.0.0:5001;}
-location /airbnb-onepage/ { proxy_pass http://0.0.0.0:5000;}
+location ~ ^/airbnb-dynamic/number_odd_or_even/(\d+)$ { proxy_pass http://0.0.0.0:5001/number_odd_or_even/$1; }
+location /airbnb-onepage/ { proxy_pass http://0.0.0.0:5000; }
 location /hbnb_static/ {alias /data/web_static/current/;}
 add_header X-Served-By "1086-web-01";
 	   listen [::]:80 default_server;
