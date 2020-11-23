@@ -18,7 +18,7 @@
 <details>
 <summary>View Contents</summary>
 
-### 0. Install MySQL
+### [0. Install MySQL](./)
 
 - First things first, let’s get MySQL installed on both your web-01 and web-02 servers.
   - MySQL distribution must be 5.7.x
@@ -191,7 +191,7 @@ Master_SSL_Verify_Server_Cert: No
 mysql>
 ```
 
-### 5. MySQL backup
+### [5. MySQL backup](./5-mysql_backup)
 
 - What if the data center where both your primary and replica database servers are hosted are down because of a power outage or even worse: flooding, fire? Then all your data would inaccessible or lost. That’s why you want to backup and store them in a different system in another physical location. This can be achieved by dumping your MySQL data, compressing them and storing them in a different data center.
 
