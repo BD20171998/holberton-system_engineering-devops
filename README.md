@@ -14,7 +14,7 @@ This repository contains programs written in Bash for the System Engineering and
 | [0x03. Shell, init files, variables and expansions ](./0x03-shell_variables_expansions) | Implementation of aliases and environmental variables |
 | [0x04. Loops, conditions and parsing ](./0x04-loops_conditions_and_parsing) | Intermediate scripting with loops and conditionals |
 | [0x05. Processes and signals ](./0x05-processes_and_signals) | Process management with kill and trap |
-| [0x06. Regular Expressions ](./0x06-) | Building regular expressions using Ruby's Oniguruma |
+| [0x06. Regular Expressions ](./0x06-regular_expressions) | Building regular expressions using Ruby's Oniguruma |
 | [0x07. Networking Basics ](./0x07-networking_basics) | OSI Model and data transfer protocols |
 | [0x08. Networking Basics 2 ](./0x08-networking_basics_2) | Localhost, IPv4 and /etc/hosts |
 | [0x09. Web Infrastructure Design ](./0x09-web_infrastructure_design) | Designing secure and monitored server systems |
@@ -33,7 +33,6 @@ This repository contains programs written in Bash for the System Engineering and
 | [0x16. Api Advanced](./0x16-api_advanced)| Interacing with Reddit's API to scrape data |
 | [0x17. Web Stack Debugging #3](./0x17-web_stack_debugging_3)| Debugging with strace |
 | [0x18. Webstack Monitoring](./0x18-webstack_monitoring)| Monitoring system metrics with Datadog |
-| [0x19. Postmortem](./0x19-postmortem)| How to write a Postmortem |
 | [0x1A. Application Server](./0x1A-application_server) | Serving Flask apps with Gunicorn and NGINX |
 | [0x1B. Web Stack Debugging #4](./0x1B-web_stack_debugging_4) | Benchmarking with ApacheBench |
 
